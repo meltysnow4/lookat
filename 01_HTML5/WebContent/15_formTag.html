@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 
+		입력 태그: <form>
+		1. action 속성: submit 할 때 입력된 정보를 보낼 경로를 작성한다.
+		2. method 속성: 입력된 정보를 보내는 방식을 작성한다.
+			1)get
+			 (1)디폴트 방식이다.
+			 (2)정보를 헤더(header)에 포함시켜서 보낸다.
+			 (3)정보가 URL에 노출된다.
+			 (4)보안이 취약하다.(검색)
+			 (5)빠르다
+			2)post
+			 (1)정보를 본문(body)에 포함시켜서 보낸다.
+			 (2)정보가 URL에 노출되지 않는다.
+			 (3)보안이 우수하다
+			 (4)느리다.
+		3. enctype
+			1)파일을 업로드 할 떄 사용한다.
+			2)업로드 처리 시 2가지 속성을 아래와 같이 처리한다.
+			 (1) method="post" <--디폴트를 사용하면 안된다!
+			 (2) enctype="multipart/form-data"
+		4. <form>태그의 자식 태그
+			1) <input> 태그
+				(1)type="text"
+				(2)type="password"
+				(3)type="button"
+				(4)type="submit"
+				(5)type="reset"
+				(6)type="radio" (무조건 한개를 골라야하는 선택버튼)
+				(7)type="checkbox" (약관동의 체크박스)
+				(8)type="file"  (업로드시에 파일선택 버튼)
+				
+			2) <select> 태그
+			3) <button> 태그
+			4) <textarea> 태그
+		
+			//검색창 : input name="query"
+	 -->
+	 <h3>파일 업로드 폼</h3>
+	 <form action="#" method="post" enctype="multipart/form-data">
+	 	첨부파일 <input type="file" name="filename" multiple/>		<!-- name 속성은 반드시 있어야한다. : 이후 java로 데이터를 보낼경우 name이 없으면 변수가 없는걸로되어 전달이되지않는다.  -->
+	 															<!-- /를 붙인이유는 스스로 닫을수 있기때문. multiple은 다중첨부를 의미한다.  -->
+	 	<input type="submit" name="submit은name필요없음" value="업로드하기"/>	<!-- value는 단추의 텍스트이다. 이코드에서는 "업로드하기"라는 단추를 만드는것. -->
+	 			<!--submit은 반드시 action이 따라와야한다.  -->
+	 </form>
+
+	<hr/> <!-- 구분선 만드는 태그  -->
+	
+	<h3>각종 텍스트 입력 태그</h3>
+	<form>
+	<!-- placeholder : 입력되어있는값 설정  -->
+		<li><input type="text" placeholder="일반 텍스트"/></li>	<!--text: 일반텍스트 모두를 포섭함  -->
+		<li><input type="password" placeholder="비밀번호"/></li>  <!--password: *문자로 표시된다. -->
+		<li><input type="number" placeholder="숫자"/></li>		<!--number: 숫자문자만 입력가능. 옆에 업다운 단추가있다. -->
+		<li><input type="email" placeholder="이메일"/></li>		<!--email: @문자를 반드시 포함함(근데 잘 사용하지 않는다.)  -->
+		<li><input type="url" placeholder="인터넷주소"/></li>		<!--url:  -->
+		<li><input type="date" placeholder="날짜"/></li>			<!--date: 날짜를 선택하는 폼  -->
+		<li><input type="time" placeholder="시간"/></li>			<!-- 시간을 입력하는 폼 -->
+	</form>
+	<h3>버튼 모양의 태그</h3>
+	<form>
+		<ol>
+			<li><input type="button" value="일반버튼"/></li>
+			<li><input type="submit" value="전송버튼"/></li>
+			<li><input type="reset" value="취소버튼"/></li>
+			<li><input type="image" alt="전송버튼" src=""/></li>		
+						<!--이미지를 버튼대신 출력. 따라서 value가 필요없다. 다만 이미지 출력을못할때텍스트를 출력해주는 alt를 사용한다. -->
+			<li><button>전송버튼</button></li>
+		</ol>
+	
+	</form>
+	
+d	<h2>선택 태그</h2>
+	<dl>
+		<dt>다중선택</dt>
+		<dd>
+			<fieldset style="width: 200px;">
+				<legend>취미</legend>
+				<input type="checkbox" name="hobbies" value="movie"/>영화<br/>
+				<input type="checkbox" name="hobbies" value="travel"/>여행<br/>
+				<input type="checkbox" name="hobbies" value="game"/>게임<br/>
+			</fieldset>
+		</dd>
+		<dt>단일 선택</dt>
+		<dd>
+			<fieldset style="width: 200px;">
+				<legend>주소</legend>
+				<input type="radio" name="address" value="seoul"/>서울<br/>
+				<input type="radio" name="address" value="jeju"/>제주<br/>
+				<input type="radio" name="address" value="mokpo"/>목포<br/>
+			</fieldset>
+		</dd>
+		<dd>
+		</dd>
+		</ol>
+	</dl>
+	
+	<h3>목록 태그</h3>
+	<table>
+		<tbody>
+			<tr>
+			<td>select one</td>
+			<td>select list</td>
+			<td>combo(select+input)</td>
+			</tr>
+			<tr>
+				<td>
+				<select name = "isp">
+					<option value="skt">SKT</option>
+					<option value="kt">KT</option>
+					<option value="lg">LG</option>
+				</select>
+				</td>
+				<td>
+					<select name ="jobs" multiple>
+						<option value="1">의사</option>
+						<option value="2">변호사</option>
+						<option value="3">교사</option>
+						<option value="4">개발자</option>
+						<option value="5">DBA</option>
+					</select>
+				</td>
+				<td>
+				<!-- 콤보는input이다. input에 datalist를 추가하는 개념이다. -->
+				<input type="text" list="domains" placeholder="도메인 입력 및 선택"/><!-- list 속성으로 <datalist> 태그와 연결한다. -->
+				<datalist id="domains"><!-- datalist 태그의 id 속성으로 input 태그의 list속성과 연결된다. -->
+					<option value="gmail.com"/>
+					<option value="naver.com"/>
+					<option value="daum.net"/>
+					<option value="kakao.com"/>					                            
+				</datalist>
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+	<hr/>
+	
+	<h3>다중행 입력이 가능한 태그</h3>
+	<textarea rows="10" cols="100" name="content" placeholder="내용"></textarea>
+	
+	<hr/>
+	<h3>이름표(label) 붙이기</h3>
+	
+	<input type="checkbox" name="wishlist" value="tv" id="wishlist"><label for="wishlist">TV</label>
+	
+	
+</body>
+</html>
