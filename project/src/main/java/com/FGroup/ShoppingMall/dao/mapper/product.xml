@@ -7,7 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.FGroup.ShoppingMall.dao.ProductDao">
 	<select id="productList" resultType="com.FGroup.ShoppingMall.dto.ProductDto">
 		SELECT *
-		  FROM PRODUCTS
+		  FROM PRODUCT
+	</select>
+	<select id="productView" parameterType="int" resultType="com.FGroup.ShoppingMall.dto.ProductDto">
+		SELECT *
+		  FROM PRODUCT
+		 WHERE P_NO = #{p_No}
 	</select>
 	
 </mapper>

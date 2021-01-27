@@ -10,9 +10,9 @@ public interface ProductDao {
 	
 	/*
 	public int productInsert(String writer, String title, String content, String filename);
-	
+	*/
 	public ProductDto productView(int no);
-	
+	/*
 	public int productDelete(int no);
 	*/
 	

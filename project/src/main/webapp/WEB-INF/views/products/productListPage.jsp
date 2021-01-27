@@ -54,10 +54,10 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <!--  <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-              <a href="#"><img class="card-img-top" src="${productDto.p_Image}" alt=""></a>
+              <a href="productViewPage.do?no=${productDto.p_No}"><img class="card-img-top" src="${productDto.p_Image}" alt=""></a>
               <div class="card-body">
                 <h6 class="card-title">
-                  <a href="#">${productDto.p_Name} [${productDto.p_Color}]</a>
+                  <a href="productViewPage.do?no=${productDto.p_No}">${productDto.p_Name} [${productDto.p_Color}]</a>
                 </h6>
                 <h6>&#8361; ${productDto.p_Price}</h6>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>

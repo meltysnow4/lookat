@@ -26,7 +26,8 @@
 	
 	<!-- command -->
 	
-	<beans:bean id="productListCommand" class = "com.FGroup.ShoppingMall.command.ProductListCommand"/>
+	 <beans:bean id="productListCommand" class = "com.FGroup.ShoppingMall.command.ProductListCommand"/>
+	 <beans:bean id="productViewCommand" class = "com.FGroup.ShoppingMall.command.ProductViewCommand"/>
 	
 	
 	
